@@ -4,6 +4,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import * as firebase from 'firebase';
+var config = {
+    apiKey: "AIzaSyCp1cHohQN2WvUnfqmtFUW-n7AwApJ_2s0",
+    authDomain: "nivelalcool-957f5.firebaseapp.com",
+    databaseURL: "https://nivelalcool-957f5.firebaseio.com",
+    projectId: "nivelalcool-957f5",
+    storageBucket: "nivelalcool-957f5.appspot.com",
+    messagingSenderId: "133735791572"
+  };
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,6 +27,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    firebase.initializeApp(config);
   }
 }
-

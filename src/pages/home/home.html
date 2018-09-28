@@ -1,14 +1,35 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Nivel de Ácool no Sangue
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label floating="">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="alcool.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating="">Peso</ion-label>
+      <ion-input type="number" (ngModelChange)="alcool.peso = converterNumber($event)" [(ngModel)]="alcool.peso"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating="">Sexo</ion-label>
+      <ion-input type="text" (ngModelChange)="alcool.sexo = converterNumber($event)" [(ngModel)]="alcool.sexo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating="">Quantidade g/l</ion-label>
+      <ion-input type="number" (ngModelChange)="alcool.quantidade = converterNumber($event)" [(ngModel)]="alcool.quantidade"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full round (click)="cadastrarAlcool()">Cadastrar Nivel de Alcool no Sangue</button>
+  <ion-list>
+   <ion-item *ngFor="let alcool of alcools">
+      <h3>{{alcool.nome}}</h3>
+      <h2>{{alcool.peso}}</h2>
+   </ion-item>
+  </ion-list>
 </ion-content>
