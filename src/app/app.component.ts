@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import * as firebase from 'firebase';
-var config = {
+const config = {
     apiKey: "AIzaSyCp1cHohQN2WvUnfqmtFUW-n7AwApJ_2s0",
     authDomain: "nivelalcool-957f5.firebaseapp.com",
     databaseURL: "https://nivelalcool-957f5.firebaseio.com",

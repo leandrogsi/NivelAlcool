@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-list>
     <ion-item>
       <ion-label floating="">Nome</ion-label>
@@ -16,10 +17,23 @@
       <ion-label floating="">Peso</ion-label>
       <ion-input type="number" (ngModelChange)="alcool.peso = converterNumber($event)" [(ngModel)]="alcool.peso"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label floating="">Sexo</ion-label>
-      <ion-input type="text" (ngModelChange)="alcool.sexo = converterNumber($event)" [(ngModel)]="alcool.sexo"></ion-input>
-    </ion-item>
+
+    <ion-list radio-group [(ngModel)]="alcool.sexo">
+      <ion-list-header>
+        Sexo
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Masculino</ion-label>
+        <ion-radio checked="true" value="M" ></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Feminino</ion-label>
+        <ion-radio value="F" ></ion-radio>
+      </ion-item>
+    </ion-list>
+
     <ion-item>
       <ion-label floating="">Quantidade g/l</ion-label>
       <ion-input type="number" (ngModelChange)="alcool.quantidade = converterNumber($event)" [(ngModel)]="alcool.quantidade"></ion-input>
@@ -27,9 +41,10 @@
   </ion-list>
   <button ion-button full round (click)="cadastrarAlcool()">Cadastrar Nivel de Alcool no Sangue</button>
   <ion-list>
-   <ion-item *ngFor="let alcool of alcools">
+    <ion-item *ngFor="let alcool of alcools">
       <h3>{{alcool.nome}}</h3>
       <h2>{{alcool.peso}}</h2>
-   </ion-item>
+      <h2>{{alcool.resultado}}</h2>
+    </ion-item>
   </ion-list>
 </ion-content>

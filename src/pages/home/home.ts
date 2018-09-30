@@ -22,6 +22,13 @@ export class HomePage {
 }
 cadastrarAlcool() {
   let novoAlcool = this.ref.push();
+
+  if (this.sexo == 'M') {
+      var  resultado = (this.alcool.quantidade / this.alcool.peso) * 0.7;
+  }else {
+  var  resultado = (this.alcool.quantidade / this.alcool.peso) * 0.6;
+  }
+  this.alcool.resultado = resultado;
   novoAlcool.set(this.alcool);
   }
 }
